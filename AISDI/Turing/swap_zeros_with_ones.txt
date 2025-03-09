@@ -1,0 +1,6 @@
+init 1 0 R init
+init 0 1 R init
+init _ _ L back
+back 0 0 L back
+back 1 1 L back
+back _ _ * halt

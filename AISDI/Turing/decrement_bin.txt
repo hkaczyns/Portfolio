@@ -1,0 +1,6 @@
+init 0 0 R init
+init 1 1 R init
+init _ _ L find
+find 1 0 * halt
+find 0 1 L find
+find _ _ * error

@@ -1,0 +1,6 @@
+init 1 1 R init
+init 0 0 R init
+init _ _ L carry
+carry 1 0 L carry
+carry 0 1 * halt
+carry _ 1 * halt
