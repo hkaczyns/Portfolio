@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: game_database
+      TZ: Europe/Warsaw
+      CHARACTER_SET_SERVER: utf8mb4
+      COLLATION_SERVER: utf8mb4_unicode_ci
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./build/database_creation.sql:/docker-entrypoint-initdb.d/1_create_tables.sql
+      - ./build/database_fill.sql:/docker-entrypoint-initdb.d/2_insert_data.sql
