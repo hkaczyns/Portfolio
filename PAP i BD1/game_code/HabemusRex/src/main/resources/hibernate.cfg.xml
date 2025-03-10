@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC "http://hibernate.org/xsd/hibernate-configuration-4.0.xsd" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/game_database</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">1234</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <mapping class="org.habemusrex.entities.User"/>
+        <mapping class="org.habemusrex.entities.Session"/>
+        <mapping class="org.habemusrex.entities.Fraction"/>
+        <mapping class="org.habemusrex.entities.Player"/>
+        <mapping class="org.habemusrex.entities.Army"/>
+        <mapping class="org.habemusrex.entities.UnitType"/>
+        <mapping class="org.habemusrex.entities.Battle"/>
+        <mapping class="org.habemusrex.entities.BuildingInfo"/>
+        <mapping class="org.habemusrex.entities.Construction"/>
+        <mapping class="org.habemusrex.entities.Territory"/>
+        <mapping class="org.habemusrex.entities.TerritoryOwnership"/>
+        <mapping class="org.habemusrex.entities.PlayerResource"/>
+        <mapping class="org.habemusrex.entities.Resource"/>
+        <mapping class="org.habemusrex.entities.BuildingProduction"/>
+        <mapping class="org.habemusrex.entities.BuildingCost"/>
+        <mapping class="org.habemusrex.entities.BuildingUpkeep"/>
+        <mapping class="org.habemusrex.entities.FractionStartingTerritory"/>
+        <mapping class="org.habemusrex.entities.TerritoryBaseResource"/>
+        <mapping class="org.habemusrex.entities.UnitCost"/>
+        <mapping class="org.habemusrex.entities.UnitUpkeep"/>
+    </session-factory>
+</hibernate-configuration>
