@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:18
+    container_name: nocarz_db
+    environment:
+      POSTGRES_USER: nocarz
+      POSTGRES_PASSWORD: nocarz123
+      POSTGRES_DB: nocarz_db
+    ports:
+      - "5436:5432"
+    volumes:
+      - nocarz_postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nocarz -d nocarz_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nocarz_api
+    environment:
+      DATABASE_URL: postgresql://nocarz:nocarz123@db:5432/nocarz_db
+      BASELINE_MODEL_PATH: models/baseline_model.pkl
+      ADVANCED_MODEL_PATH: models/advanced_model.pkl
+    ports:
+      - "8080:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  nocarz_postgres_data:
