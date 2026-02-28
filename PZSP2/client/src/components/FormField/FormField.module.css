@@ -1,0 +1,68 @@
+.formFieldContainer {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    align-self: center;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    height: 50px;
+    width: 100%;
+    border: 2px solid var(--color-black);
+    border-radius: 12px;
+    background: var(--color-white);
+    box-sizing: border-box;
+    flex-shrink: 1;
+}
+
+.inputContainerError {
+    border-color: var(--color-error);
+}
+
+.icon {
+    display: inline-flex;
+    color: var(--text-color);
+    width: 25px;
+    height: 25px;
+}
+
+.input {
+    flex: 1 1 160px;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: var(--font-medium);
+}
+
+.input::placeholder {
+    color: var(--secondary-text-color);
+}
+
+.errorIcon {
+    color: var(--color-error);
+}
+
+.errorMessage {
+    color: var(--color-error);
+    font-size: var(--font-small);
+    align-self: flex-start;
+    min-height: 18px;
+}
+
+.errorVisible {
+    visibility: visible;
+}
+
+.errorHidden {
+    visibility: hidden;
+}

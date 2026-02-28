@@ -1,0 +1,90 @@
+{
+    "common": {
+        "UNKNOWN_ERROR": "An unknown error occurred. Please try again later."
+    },
+    "auth": {
+        "REGISTER_USER_ALREADY_EXISTS": "A user with the provided email address already exists.",
+        "LOGIN_BAD_CREDENTIALS": "The email or password are incorrect.",
+        "VERIFICATION_TOKEN_NOT_PROVIDED": "Verification token was not provided.",
+        "VERIFICATION_TOKEN_INVALID": "Verification token is invalid or has expired.",
+        "LOGIN_USER_NOT_VERIFIED": "Your account has not been verified yet.",
+        "RESET_PASSWORD_BAD_TOKEN": "Password reset token is invalid or has expired.",
+        "RESET_PASSWORD_INVALID_PASSWORD": "The password does not meet the requirements."
+    },
+    "validation": {
+        "email": {
+            "required": "Email is required.",
+            "invalid": "Invalid email format.",
+            "minLength": "Email must be at least 6 characters long.",
+            "maxLength": "Email cannot exceed 254 characters.",
+            "noSpaces": "Email cannot contain spaces.",
+            "same": "New email address must be different from the current one."
+        },
+        "password": {
+            "required": "Password is required.",
+            "minLength": "Password must be at least 8 characters long.",
+            "maxLength": "Password cannot exceed 256 characters.",
+            "lowercase": "Password must contain at least one lowercase letter.",
+            "uppercase": "Password must contain at least one uppercase letter.",
+            "number": "Password must contain at least one number.",
+            "noSpaces": "Password cannot contain spaces."
+        },
+        "firstName": {
+            "required": "First name is required.",
+            "minLength": "First name must be at least 2 characters long.",
+            "maxLength": "First name cannot exceed 64 characters.",
+            "noSpaces": "First name cannot contain spaces."
+        },
+        "lastName": {
+            "required": "Last name is required.",
+            "minLength": "Last name must be at least 2 characters long.",
+            "maxLength": "Last name cannot exceed 128 characters.",
+            "noSpaces": "Last name cannot contain spaces."
+        },
+        "confirmPassword": {
+            "required": "Confirm password is required.",
+            "mismatch": "Passwords do not match."
+        },
+        "startTime": {
+            "required": "Start time is required."
+        },
+        "endTime": {
+            "required": "End time is required.",
+            "mustBeAfterStart": "End time must be later than start time."
+        },
+        "amount": {
+            "required": "Amount is required.",
+            "mustBePositive": "Amount must be greater than zero."
+        },
+        "paidAt": {
+            "required": "Paid at date is required."
+        },
+        "paymentMethod": {
+            "required": "Payment method is required.",
+            "invalid": "Invalid payment method."
+        },
+        "amountDue": {
+            "required": "Amount due is required.",
+            "mustBePositive": "Amount due must be greater than zero."
+        },
+        "dueDate": {
+            "required": "Due date is required."
+        },
+        "type": {
+            "required": "Charge type is required.",
+            "invalid": "Invalid charge type."
+        },
+        "chargeId": {
+            "required": "Charge is required."
+        },
+        "amountAllocated": {
+            "required": "Amount allocated is required.",
+            "mustBePositive": "Amount allocated must be greater than zero."
+        },
+        "common": {
+            "account": {
+                "currentPasswordRequired": "Current password is required when changing email or password"
+            }
+        }
+    }
+}

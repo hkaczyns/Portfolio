@@ -1,0 +1,89 @@
+.footerContainer {
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 40px 20px;
+    min-height: var(--footer-height);
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.logoSection {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.linksSection {
+    display: flex;
+    gap: 60px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.linkColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.columnTitle {
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-medium);
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+.linkList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.linkList li {
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--font-small);
+    transition: opacity 0.2s ease;
+}
+
+.link:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .footerContent {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .linksSection {
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+    }
+
+    .logo {
+        height: 32px;
+    }
+}

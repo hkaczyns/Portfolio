@@ -1,0 +1,152 @@
+name: test-backend
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: test
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+      DEBUG: ${{ secrets.DEBUG }}
+      API_V1_STR: ${{ secrets.API_V1_STR }}
+      BACKEND_BASE_URL: ${{ secrets.BACKEND_BASE_URL }}
+      FRONTEND_BASE_URL: ${{ secrets.FRONTEND_BASE_URL }}
+
+      DB_HOST: 127.0.0.1
+      DB_SERVER: 127.0.0.1
+      DB_PORT: 5435
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+
+      RESET_PASSWORD_SECRET: ${{ secrets.RESET_PASSWORD_SECRET }}
+      VERIFICATION_TOKEN_SECRET: ${{ secrets.VERIFICATION_TOKEN_SECRET }}
+      COOKIE_NAME: ${{ secrets.COOKIE_NAME }}
+      COOKIE_MAX_AGE: ${{ secrets.COOKIE_MAX_AGE }}
+      COOKIE_SECURE: ${{ secrets.COOKIE_SECURE }}
+      COOKIE_SAMESITE: ${{ secrets.COOKIE_SAMESITE }}
+
+      FIRST_SUPERUSER_EMAIL: ${{ secrets.FIRST_SUPERUSER_EMAIL }}
+      FIRST_SUPERUSER_PASSWORD: ${{ secrets.FIRST_SUPERUSER_PASSWORD }}
+
+      FIRST_NORMAL_USER_EMAIL: ${{ secrets.FIRST_NORMAL_USER_EMAIL }}
+      FIRST_NORMAL_USER_PASSWORD: ${{ secrets.FIRST_NORMAL_USER_PASSWORD }}
+
+      FIRST_INSTRUCTOR_EMAIL: ${{ secrets.FIRST_INSTRUCTOR_EMAIL }}
+      FIRST_INSTRUCTOR_PASSWORD: ${{ secrets.FIRST_INSTRUCTOR_PASSWORD }}
+
+      SEND_EMAILS: ${{ secrets.SEND_EMAILS }}
+      SMTP_TLS: ${{ secrets.SMTP_TLS }}
+      SMTP_SSL: ${{ secrets.SMTP_SSL }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      EMAILS_FROM_EMAIL: ${{ secrets.EMAILS_FROM_EMAIL }}
+      EMAILS_FROM_NAME: ${{ secrets.EMAILS_FROM_NAME }}
+      EMAIL_RESET_TOKEN_EXPIRE_HOURS: ${{ secrets.EMAIL_RESET_TOKEN_EXPIRE_HOURS }}
+      ALLOWED_ORIGINS: ${{ secrets.ALLOWED_ORIGINS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Generate test env file
+        run: |
+          cat <<EOF > server/.env.test
+          PROJECT_NAME=${PROJECT_NAME}
+          APP_ENV=${APP_ENV}
+          DEBUG=${DEBUG}
+          API_V1_STR=${API_V1_STR}
+          BACKEND_BASE_URL=${BACKEND_BASE_URL}
+          FRONTEND_BASE_URL=${FRONTEND_BASE_URL}
+          DB_SERVER=${DB_SERVER}
+          DB_PORT=${DB_PORT}
+          DB_USER=${DB_USER}
+          DB_PASSWORD=${DB_PASSWORD}
+          DB_NAME=${DB_NAME}
+          RESET_PASSWORD_SECRET=${RESET_PASSWORD_SECRET}
+          VERIFICATION_TOKEN_SECRET=${VERIFICATION_TOKEN_SECRET}
+          COOKIE_NAME=${COOKIE_NAME}
+          COOKIE_MAX_AGE=${COOKIE_MAX_AGE}
+          COOKIE_SECURE=${COOKIE_SECURE}
+          COOKIE_SAMESITE=${COOKIE_SAMESITE}
+          FIRST_SUPERUSER_EMAIL=${FIRST_SUPERUSER_EMAIL}
+          FIRST_SUPERUSER_PASSWORD=${FIRST_SUPERUSER_PASSWORD}
+          FIRST_NORMAL_USER_EMAIL=${FIRST_NORMAL_USER_EMAIL}
+          FIRST_NORMAL_USER_PASSWORD=${FIRST_NORMAL_USER_PASSWORD}
+          FIRST_INSTRUCTOR_EMAIL=${FIRST_INSTRUCTOR_EMAIL}
+          FIRST_INSTRUCTOR_PASSWORD=${FIRST_INSTRUCTOR_PASSWORD}
+          SEND_EMAILS=${SEND_EMAILS}
+          SMTP_TLS=${SMTP_TLS}
+          SMTP_SSL=${SMTP_SSL}
+          SMTP_PORT=${SMTP_PORT}
+          SMTP_HOST=${SMTP_HOST}
+          SMTP_USER=${SMTP_USER}
+          SMTP_PASSWORD=${SMTP_PASSWORD}
+          EMAILS_FROM_EMAIL=${EMAILS_FROM_EMAIL}
+          EMAILS_FROM_NAME=${EMAILS_FROM_NAME}
+          EMAIL_RESET_TOKEN_EXPIRE_HOURS=${EMAIL_RESET_TOKEN_EXPIRE_HOURS}
+          ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+          EOF
+
+      - name: Start test Postgres
+        run: |
+          docker compose -f docker-compose.test.yml up -d
+          for i in {1..30}; do
+            if docker exec test_tiptap_db pg_isready -U "$DB_USER" -d "$DB_NAME"; then
+              echo "Postgres is ready"
+              break
+            fi
+            echo "Waiting for Postgres..."
+            sleep 2
+          done
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Install Python deps
+        working-directory: server
+        run: |
+          uv sync
+          uv pip install pytest pytest-cov
+
+      - name: Lint with black
+        working-directory: server
+        run: |
+          source .venv/bin/activate
+          black --check .
+
+      - name: Lint with ruff
+        working-directory: server
+        run: |
+          source .venv/bin/activate
+          ruff check .
+
+      - name: Run DB migrations
+        if: hashFiles('server/alembic.ini') != ''
+        working-directory: server
+        run: |
+          source .venv/bin/activate
+          alembic upgrade head
+
+      - name: Run tests
+        working-directory: server
+        run: |
+          source .venv/bin/activate
+          pytest -q --maxfail=1 --disable-warnings
+
+      - name: Tear down containers
+        if: always()
+        run: docker compose -f docker-compose.test.yml down -v

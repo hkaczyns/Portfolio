@@ -1,0 +1,115 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modalTitle {
+    font-size: var(--font-large);
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0 0 24px 0;
+}
+
+.sessionInfo {
+    color: var(--secondary-text-color);
+    margin: 0 0 32px 0;
+    font-size: var(--font-medium);
+}
+
+.sessionInfo strong {
+    color: var(--text-color);
+}
+
+.formGroup {
+    margin-bottom: 32px;
+}
+
+.label {
+    display: block;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 12px;
+    font-size: var(--font-small);
+}
+
+.textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: var(--font-small);
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--text-color);
+}
+
+.textarea:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.cancelButton,
+.confirmButton {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: var(--font-small);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.cancelButton {
+    background-color: var(--color-white);
+    color: var(--text-color);
+    border: 1px solid #e0e0e0;
+}
+
+.cancelButton:hover:not(:disabled) {
+    background-color: #f5f5f5;
+}
+
+.confirmButton {
+    background-color: var(--text-color);
+    color: var(--color-white);
+}
+
+.confirmButton:hover:not(:disabled) {
+    background-color: var(--secondary-text-color);
+}
+
+.cancelButton:disabled,
+.confirmButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

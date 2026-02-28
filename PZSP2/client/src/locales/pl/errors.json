@@ -1,0 +1,90 @@
+{
+    "common": {
+        "UNKNOWN_ERROR": "Wystąpił nieznany błąd. Proszę spróbować ponownie później."
+    },
+    "auth": {
+        "REGISTER_USER_ALREADY_EXISTS": "Użytkownik z podanym adresem e-mail już istnieje.",
+        "LOGIN_BAD_CREDENTIALS": "Adres e-mail lub hasło są nieprawidłowe.",
+        "VERIFICATION_TOKEN_NOT_PROVIDED": "Token weryfikacyjny nie został podany.",
+        "VERIFICATION_TOKEN_INVALID": "Token weryfikacyjny jest nieprawidłowy lub wygasł.",
+        "LOGIN_USER_NOT_VERIFIED": "Twoje konto nie zostało jeszcze zweryfikowane.",
+        "RESET_PASSWORD_BAD_TOKEN": "Token resetowania hasła jest nieprawidłowy lub wygasł.",
+        "RESET_PASSWORD_INVALID_PASSWORD": "Hasło nie spełnia wymagań."
+    },
+    "validation": {
+        "email": {
+            "required": "Adres e-mail jest wymagany.",
+            "invalid": "Nieprawidłowy format adresu e-mail.",
+            "minLength": "Adres e-mail musi mieć co najmniej 6 znaków.",
+            "maxLength": "Adres e-mail nie może przekraczać 254 znaków.",
+            "noSpaces": "Adres e-mail nie może zawierać spacji.",
+            "same": "Nowy adres e-mail musi być inny od obecnego."
+        },
+        "password": {
+            "required": "Hasło jest wymagane.",
+            "minLength": "Hasło musi mieć co najmniej 8 znaków.",
+            "maxLength": "Hasło nie może przekraczać 256 znaków.",
+            "lowercase": "Hasło musi zawierać co najmniej jedną małą literę.",
+            "uppercase": "Hasło musi zawierać co najmniej jedną wielką literę.",
+            "number": "Hasło musi zawierać co najmniej jedną cyfrę.",
+            "noSpaces": "Hasło nie może zawierać spacji."
+        },
+        "firstName": {
+            "required": "Imię jest wymagane.",
+            "minLength": "Imię musi mieć co najmniej 2 znaki.",
+            "maxLength": "Imię nie może przekraczać 64 znaków.",
+            "noSpaces": "Imię nie może zawierać spacji."
+        },
+        "lastName": {
+            "required": "Nazwisko jest wymagane.",
+            "minLength": "Nazwisko musi mieć co najmniej 2 znaki.",
+            "maxLength": "Nazwisko nie może przekraczać 128 znaków.",
+            "noSpaces": "Nazwisko nie może zawierać spacji."
+        },
+        "confirmPassword": {
+            "required": "Potwierdzenie hasła jest wymagane.",
+            "mismatch": "Hasła nie są zgodne."
+        },
+        "startTime": {
+            "required": "Godzina rozpoczęcia jest wymagana."
+        },
+        "endTime": {
+            "required": "Godzina zakończenia jest wymagana.",
+            "mustBeAfterStart": "Godzina zakończenia musi być późniejsza niż godzina rozpoczęcia."
+        },
+        "amount": {
+            "required": "Kwota jest wymagana.",
+            "mustBePositive": "Kwota musi być większa od zera."
+        },
+        "paidAt": {
+            "required": "Data płatności jest wymagana."
+        },
+        "paymentMethod": {
+            "required": "Metoda płatności jest wymagana.",
+            "invalid": "Nieprawidłowa metoda płatności."
+        },
+        "amountDue": {
+            "required": "Kwota do zapłaty jest wymagana.",
+            "mustBePositive": "Kwota do zapłaty musi być większa od zera."
+        },
+        "dueDate": {
+            "required": "Termin płatności jest wymagany."
+        },
+        "type": {
+            "required": "Typ opłaty jest wymagany.",
+            "invalid": "Nieprawidłowy typ opłaty."
+        },
+        "chargeId": {
+            "required": "Opłata jest wymagana."
+        },
+        "amountAllocated": {
+            "required": "Kwota alokowana jest wymagana.",
+            "mustBePositive": "Kwota alokowana musi być większa od zera."
+        },
+        "common": {
+            "account": {
+                "currentPasswordRequired": "Obecne hasło jest wymagane przy zmianie email lub hasła"
+            }
+        }
+    }
+}

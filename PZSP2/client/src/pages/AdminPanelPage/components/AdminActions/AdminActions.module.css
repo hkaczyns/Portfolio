@@ -1,0 +1,103 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 280px;
+    padding: 24px;
+    background-color: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: visible;
+}
+
+@media (min-width: 769px) {
+    .column {
+        overflow-x: visible;
+    }
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.actionButton {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--text-color);
+    font-size: var(--font-small);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: left;
+}
+
+.actionButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.actionButtonActive {
+    background-color: rgba(24, 144, 255, 0.1);
+    color: var(--color-primary);
+}
+
+.actionButtonActive:hover {
+    background-color: rgba(24, 144, 255, 0.15);
+}
+
+.actionButton span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .column {
+        width: 100%;
+        height: auto;
+        min-height: unset;
+        padding: 20px;
+        gap: 24px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .column {
+        padding: 16px;
+        gap: 20px;
+    }
+
+    .actionButton {
+        padding: 10px 14px;
+        font-size: var(--font-small);
+        gap: 10px;
+    }
+
+    .actionButton svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .column {
+        padding: 12px;
+        gap: 16px;
+    }
+
+    .actionButton {
+        padding: 8px 12px;
+    }
+}

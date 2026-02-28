@@ -1,0 +1,260 @@
+.calendarContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: var(--color-white);
+}
+
+.calendarContent {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: var(--font-xlarge);
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.listItem {
+    background-color: var(--color-white);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.listItem:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.listItemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.listItemTitle {
+    font-size: var(--font-large);
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+    flex: 1;
+}
+
+.statusBadge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: var(--font-small);
+    font-weight: 500;
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.listItemDescription {
+    color: var(--secondary-text-color);
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+}
+
+.listItemDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detailRow {
+    display: flex;
+    gap: 12px;
+}
+
+.detailLabel {
+    font-weight: 500;
+    color: var(--text-color);
+    min-width: 120px;
+}
+
+.detailRow > span:not(.detailLabel) {
+    color: var(--secondary-text-color);
+}
+
+.listItemActions {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.enrollButton {
+    padding: 10px 20px;
+    background-color: var(--text-color);
+    color: var(--color-white);
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    font-size: var(--font-small);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.enrollButton:hover {
+    background-color: var(--secondary-text-color);
+    border-color: var(--secondary-text-color);
+}
+
+.enrollmentStatus {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.statusTextActive {
+    color: var(--color-success);
+    font-size: var(--font-small);
+    font-weight: 500;
+}
+
+.statusTextWaitlist {
+    color: #ff9800;
+    font-size: var(--font-small);
+    font-weight: 500;
+}
+
+.filtersContainer {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filtersRow {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.filtersRow:last-child {
+    margin-bottom: 0;
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.filterLabel {
+    font-size: var(--font-small);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.filterSelect {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: var(--font-small);
+    background-color: var(--color-white);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.filterSelect:hover {
+    border-color: var(--text-color);
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: var(--text-color);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.filterCheckbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filterCheckbox label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-small);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.filterCheckbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.clearFiltersButton {
+    padding: 8px 16px;
+    background-color: var(--color-white);
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: var(--font-small);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: auto;
+}
+
+.clearFiltersButton:hover {
+    background-color: #f0f0f0;
+    border-color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .listItemHeader {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .detailRow {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .detailLabel {
+        min-width: auto;
+    }
+
+    .filtersRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filterGroup {
+        min-width: auto;
+    }
+
+    .clearFiltersButton {
+        margin-left: 0;
+        width: 100%;
+    }
+}

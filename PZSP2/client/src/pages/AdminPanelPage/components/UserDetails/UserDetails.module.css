@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 40px;
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: var(--font-small);
+    cursor: pointer;
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+.backButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    overflow: visible;
+    padding-bottom: 20px;
+}
+
+.sectionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: visible;
+}
+
+.topSections {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.topSections > :first-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.topSections > :last-child {
+    flex: 0 0 auto;
+    min-width: 300px;
+}
+
+@media (max-width: 968px) {
+    .topSections {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 968px) {
+    .container {
+        gap: 20px;
+    }
+}

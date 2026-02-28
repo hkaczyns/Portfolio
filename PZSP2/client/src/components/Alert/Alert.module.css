@@ -1,0 +1,26 @@
+.alert {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: var(--font-medium);
+    color: var(--color-white);
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.alertSuccess {
+    background-color: var(--color-success);
+}
+
+.alertError {
+    background-color: var(--color-error);
+}

@@ -1,0 +1,46 @@
+services:
+  db:
+    image: postgres:18
+    container_name: prod_tiptap_db
+    restart: always
+    volumes:
+      - prod_tiptap_db_data:/var/lib/postgresql/data/pgdata
+    env_file:
+      - ./server/.env.prod
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  backend:
+    build: ./server
+    container_name: prod_tiptap_backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ./server/.env.prod
+    ports:
+      - "8001:8000"
+
+  frontend:
+    build: ./client
+    container_name: prod_tiptap_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client/src:/app/src
+    command: npm run dev -- --host 0.0.0.0 --port 5173
+
+volumes:
+  prod_tiptap_db_data:

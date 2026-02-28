@@ -1,0 +1,23 @@
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-error: #ff4d4f;
+    --color-success: #52c41a;
+    --color-primary: #1890ff;
+    --color-scheduled: #3174ad;
+    --color-completed: #28a745;
+    --color-cancelled: #dc3545;
+
+    --text-color: #000000;
+    --secondary-text-color: #bcbcbc;
+
+    --font-tiny: 12px;
+    --font-small: 14px;
+    --font-medium: 18px;
+    --font-medium-large: 20px;
+    --font-large: 24px;
+    --font-xlarge: 30px;
+
+    --header-height: 50px;
+    --footer-height: 50px;
+}

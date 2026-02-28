@@ -1,0 +1,124 @@
+.container {
+    width: 100%;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    max-width: 600px;
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: 20px;
+    color: var(--secondary-text-color);
+}
+
+.error {
+    color: #d32f2f;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.contactItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.contactItem:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.contactHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contactIcon {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color, #1976d2);
+}
+
+.contactLabel {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.contactValue {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contactValue:hover {
+    color: var(--primary-color, #1976d2);
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .contactIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .contactLabel {
+        font-size: 1.1rem;
+    }
+
+    .contactValue {
+        font-size: 1rem;
+    }
+}

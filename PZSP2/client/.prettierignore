@@ -1,0 +1,8 @@
+dist
+build
+coverage
+
+eslint.config.js
+jest.config.*
+vite.config.*
+tsconfig*.json

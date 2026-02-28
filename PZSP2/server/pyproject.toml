@@ -1,0 +1,40 @@
+[project]
+name = "server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic>=1.17.1",
+    "asyncpg>=0.30.0",
+    "black>=25.11.0",
+    "fastapi-mail>=1.5.8",
+    "fastapi-users-db-sqlalchemy>=7.0.0",
+    "fastapi-users[sqlalchemy]>=15.0.1",
+    "fastapi[standard]>=0.120.4",
+    "psycopg>=3.2.12",
+    "pydantic-settings>=2.11.0",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.5",
+    "sqlmodel>=0.0.27",
+]
+
+[tool.black]
+line-length = 79
+exclude = '''
+/(
+    \.venv
+  | build
+  | dist
+  | alembic
+)/
+'''
+
+[tool.ruff]
+line-length = 79
+extend-exclude = [
+    ".venv",
+    "alembic",
+]

@@ -1,0 +1,238 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 280px;
+    padding: 24px;
+    background-color: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.avatarSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 0;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.fullName {
+    font-size: var(--font-large);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.role {
+    font-size: var(--font-small);
+    color: var(--secondary-text-color);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.actionButton {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--text-color);
+    font-size: var(--font-small);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: left;
+}
+
+.actionButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.actionButtonActive {
+    background-color: rgba(24, 144, 255, 0.1);
+    color: var(--color-primary);
+}
+
+.actionButtonActive:hover {
+    background-color: rgba(24, 144, 255, 0.15);
+}
+
+.actionButton span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.separator {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.06);
+    margin: 8px 0;
+}
+
+.languageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 16px;
+}
+
+.languageInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--font-small);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.languageToggle {
+    display: inline-flex;
+    gap: 0;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 2px;
+}
+
+.languageOption {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: var(--font-small);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        box-shadow 0.2s;
+}
+
+.languageOption:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.languageOption:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.languageOptionActive {
+    background-color: rgba(24, 144, 255, 0.1);
+    color: var(--color-primary);
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .column {
+        width: 100%;
+        height: auto;
+        min-height: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .column {
+        padding: 20px;
+        gap: 24px;
+        border-radius: 12px;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .fullName {
+        font-size: var(--font-medium);
+    }
+}
+
+@media (max-width: 480px) {
+    .column {
+        padding: 16px;
+        gap: 20px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .fullName {
+        font-size: var(--font-small);
+    }
+
+    .role {
+        font-size: 12px;
+    }
+
+    .actionButton {
+        padding: 10px 14px;
+        font-size: var(--font-small);
+        gap: 10px;
+    }
+
+    .actionButton svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .languageInfo {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .column {
+        padding: 12px;
+        gap: 16px;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .actionButton {
+        padding: 8px 12px;
+    }
+}

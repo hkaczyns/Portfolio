@@ -1,0 +1,23 @@
+.layoutWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.headerContainer {
+    top: 0;
+    height: var(--header-height);
+    z-index: 10;
+}
+
+.mainSection {
+    flex: 1;
+    display: flex;
+    padding: 0;
+}
+
+.footerContainer {
+    bottom: 0;
+    height: var(--footer-height);
+    z-index: 10;
+}
