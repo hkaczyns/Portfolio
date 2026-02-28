@@ -1,0 +1,61 @@
+networks:
+  default:
+    name: z51_network
+    external: true
+
+services:
+  z51_1_p_server:
+    container_name: z51_1_p_server
+    build: ./p_server
+
+  z51_1_c_server:
+    container_name: z51_1_c_server
+    build: ./c_server
+    tty: true
+
+  z51_1_p_server_p_client:
+    container_name: z51_1_p_server_p_client
+    build: ./p_client
+    depends_on:
+      - z51_1_p_server
+    command: ["python3", "-u", "/p_client.py", "--host", "z51_1_p_server"]
+  z51_1_p_server_c_client:
+    container_name: z51_1_p_server_c_client
+    build: ./c_client
+    tty: true
+    depends_on:
+      - z51_1_p_server
+    command: ["./c_client", "z51_1_p_server", "8000", "3", "100", "0", "5"]
+
+  z51_1_c_server_p_client:
+    container_name: z51_1_c_server_p_client
+    build: ./p_client
+    depends_on:
+      - z51_1_c_server
+    command: ["python3", "-u", "/p_client.py", "--host", "z51_1_c_server"]
+  z51_1_c_server_c_client:
+    container_name: z51_1_c_server_c_client
+    build: ./c_client
+    tty: true
+    depends_on:
+      - z51_1_c_server
+    command: ["./c_client", "z51_1_c_server", "8000", "3", "100", "0", "5"]
+
+  z51_1_p_server_c_client_test:
+    container_name: z51_1_p_server_c_client_test
+    build: ./c_client
+    tty: true
+    depends_on:
+      - z51_1_p_server
+    command:
+      [
+        "./c_client",
+        "z51_1_p_server",
+        "8000",
+        "3",
+        "100",
+        "0",
+        "65501",
+        "65507",
+        "65510",
+      ]

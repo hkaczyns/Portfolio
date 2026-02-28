@@ -1,0 +1,33 @@
+networks:
+  default:
+    name: z51_network
+    external: true
+
+services:
+  z51_22_p_server:
+    container_name: z51_22_p_server
+    build: ./p_server
+
+  z51_22_p_server_c_client_100b:
+    container_name: z51_22_p_server_c_client_100b
+    build: ./c_client
+    tty: true
+    depends_on:
+      - z51_22_p_server
+    command: ["./c_client", "z51_22_p_server", "8000", "10000", "100"]
+
+  z51_22_p_server_c_client_1kb:
+    container_name: z51_22_p_server_c_client_1kb
+    build: ./c_client
+    tty: true
+    depends_on:
+      - z51_22_p_server
+    command: ["./c_client", "z51_22_p_server", "8000", "10000", "1000"]
+
+  z51_22_p_server_c_client_10kb:
+    container_name: z51_22_p_server_c_client_10kb
+    build: ./c_client
+    tty: true
+    depends_on:
+      - z51_22_p_server
+    command: ["./c_client", "z51_22_p_server", "8000", "10000", "10000"]

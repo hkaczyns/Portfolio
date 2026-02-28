@@ -1,0 +1,21 @@
+networks:
+  default:
+    name: z51_network
+    external: true
+
+services:
+  z51_13_c_server:
+    container_name: z51_13_c_server
+    build: ./c_server
+    tty: true
+    cap_add:
+      - NET_ADMIN
+
+  z51_13_c_server_p_client:
+    container_name: z51_13_c_server_p_client
+    build: ./p_client
+    depends_on:
+      - z51_13_c_server
+    command: ["python3", "-u", "/p_client.py", "--host", "z51_13_c_server"]
+    cap_add:
+      - NET_ADMIN

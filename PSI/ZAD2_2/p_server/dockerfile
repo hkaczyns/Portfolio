@@ -1,0 +1,3 @@
+FROM python:3
+ADD p_server.py /
+ENTRYPOINT ["python3",  "-u", "/p_server.py", "--host", "0.0.0.0", "--port", "8000"]

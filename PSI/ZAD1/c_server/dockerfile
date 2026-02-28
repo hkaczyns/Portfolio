@@ -1,0 +1,5 @@
+FROM gcc:4.9
+COPY ./ Server
+WORKDIR /Server/
+RUN gcc -o c_server c_server.c
+CMD ["./c_server", "8000", "1"]

@@ -1,0 +1,57 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# debug information files
+*.dwo
+.vscode/settings.json
+ZAD2/TEST2.2/c_client
+ZAD2/TEST2.1/c_client
+ZAD2/FINAL/ZAD2_1/c_client/c_client
+.vscode/tasks.json
+ZAD2/FINAL/ZAD2_2/c_client/c_client
+ZAD2_1/c_client/c_client
+ZAD2_2/c_client/c_client
+ZAD1/c_client/c_client
+ZAD1_3/c_server/c_server
+robocze/
+PROJ/main
+.vscode
+
+
+*.conf

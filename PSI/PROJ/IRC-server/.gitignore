@@ -1,0 +1,9 @@
+build/
+bin/
+*.o
+*.out
+*.exe
+*.d
+*.log
+weechat_temp/
+src/test
