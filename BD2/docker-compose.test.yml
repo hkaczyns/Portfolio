@@ -1,0 +1,53 @@
+services:
+  test-db:
+    image: postgres:16
+    container_name: clingclang-test-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: clingclang_test_db
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_pass
+    volumes:
+      - test_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - test-network
+  test-server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.test
+    container_name: clingclang-test-server
+    restart: "no"
+    depends_on:
+      - test-db
+    environment:
+      DB_NAME: clingclang_test_db
+      DB_USER: test_user
+      DB_PASSWORD: test_pass
+      DB_HOST: test-db
+      SERVER_PORT: ${SERVER_PORT}
+      LOGS_DB_CONSOLE: false
+      LOGS_WINSTON_CONSOLE: false
+      TEST_MODE: true
+      ACCESS_TOKEN_SECRET: "test_secret"
+      CLIENT_URL: "http://localhost"
+      EMAIL_SERVICE: ${EMAIL_SERVICE}
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    volumes:
+      - ./server/src:/app/src
+      - ./server/logs:/app/logs
+      - ./server/uploads:/app/uploads
+    networks:
+      - test-network
+    command: npm run test
+
+networks:
+  test-network:
+    driver: bridge
+
+volumes:
+  test_postgres_data:
