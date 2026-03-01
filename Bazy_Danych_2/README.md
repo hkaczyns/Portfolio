@@ -2,7 +2,7 @@
 
 University Project for BD2 subject (Bazy Danych 2) at Warsaw University of Technology.
 
-Web application for looking friends.
+Web application for finding friends.
 
 ## Table of Contents
 
@@ -114,15 +114,3 @@ Some screenshots to present UI (work in progress).
 **User Details Page**
 
 ![User Details Page](https://i.imgur.com/GZcoUem.png)
-
-**Profile Picture Cropping**
-
-![Profile Picture Cropping](https://i.imgur.com/GJYMB9z.png)
-
-**User Details Page with Profile Picture**
-
-![User Details Page with Profile Picture](https://i.imgur.com/d74bWgJ.png)
-
-**Extended Sidebar**
-
-![Extended Sidebar](https://i.imgur.com/nUFvSuL.png)
