@@ -1,2 +1,2 @@
 # IUM_25Z
-Serwis Nocarz szczyci się wysoką jakością wsparcia dla oferentów. Wydaje nam się, że przy dodawaniu nowej oferty nasz serwis powinien sugerować wartość nocy.
+W folderach znajdują się dwa etapy projektu, który implementuje model sztucznej inteligencji dobierający odpowiednie ceny dla proponowanych ofert wynajmu.

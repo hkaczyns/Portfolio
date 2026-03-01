@@ -12,6 +12,8 @@ To portfolio zawiera najważniejsze wykonane przeze mnie projekty informatyczne 
 
 - Folder `Programowanie_Obiektowe` zawiera projekt desktopowej gry fabularnej "Szpady i Zwady" napisany w języku C++,
 
+- Folder `Programowanie_Sieciowe` zawiera projekty implementujące pomniejsze zadania związane z obsługą serwera i klienta w połączeniach UDP oraz TCP w językach C i Python oraz większy projekt implementujący serwer IRC w języku C++,
+
 - Folder `Projekt_Zespołowy_2_Aplikacja_Webowa` zawiera projekt aplikacji webowej do zarzadzania szkołą tańca. Na frontendzie wykorzystuje ReactJS i Typescript, a na backendzie Python z FastAPI. Baza danych to PostgreSQL,
 
 - Folder `Przeszukiwanie_i_Optymalizacja` zawiera projekt implementujący i badający algorytm ewolucyjny w języku Python, który ma za zadanie optymalizację rozmieszczenia sieci optycznej,
